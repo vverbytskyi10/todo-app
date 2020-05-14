@@ -1,6 +1,6 @@
-package com.vverbytskyi.todoapp.data
+package com.vverbytskyi.todoapp.data.model
 
-data class TodoRawModel(
+data class TodoRawEntity(
     val id: Int,
     val userId: Int,
     val title: String,

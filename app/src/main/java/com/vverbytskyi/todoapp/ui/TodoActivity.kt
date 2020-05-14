@@ -1,8 +1,9 @@
-package com.vverbytskyi.todoapp
+package com.vverbytskyi.todoapp.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.vverbytskyi.todoapp.R
 import com.vverbytskyi.todoapp.network.TodoService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -11,7 +12,7 @@ import kotlinx.coroutines.launch
 import org.koin.android.ext.android.get
 import kotlin.coroutines.CoroutineContext
 
-class MainActivity : AppCompatActivity(), CoroutineScope {
+class TodoActivity : AppCompatActivity(), CoroutineScope {
 
     val todoService: TodoService = get()
 

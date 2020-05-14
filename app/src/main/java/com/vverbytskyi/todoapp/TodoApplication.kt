@@ -1,6 +1,7 @@
 package com.vverbytskyi.todoapp
 
 import android.app.Application
+import com.vverbytskyi.todoapp.di.modules.mappersModule
 import com.vverbytskyi.todoapp.di.modules.networkModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -15,7 +16,8 @@ class TodoApplication : Application() {
             androidLogger()
             androidContext(this@TodoApplication)
             modules(listOf(
-                networkModule
+                networkModule,
+                mappersModule
             ))
         }
     }
