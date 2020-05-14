@@ -4,7 +4,6 @@ import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import com.vverbytskyi.todoapp.network.TodoService
 import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
 import retrofit2.Converter
 import retrofit2.Retrofit
@@ -13,15 +12,10 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 val networkModule = module {
     factory { provideMoshi() }
     factory { provideJsonConverterFactory(get()) }
-    factory { provideLoggingInterceptor() }
-    factory { provideOkHttpClient(get()) }
+    factory { provideOkHttpClient() }
 
     single { provideRetrofit(get(), get(), "https://jsonplaceholder.typicode.com") }
     single { provideTodoService(get()) }
-}
-
-fun provideLoggingInterceptor(): HttpLoggingInterceptor {
-    return HttpLoggingInterceptor()
 }
 
 fun provideMoshi(): Moshi {
@@ -34,9 +28,8 @@ fun provideJsonConverterFactory(moshi: Moshi): Converter.Factory {
     return MoshiConverterFactory.create(moshi)
 }
 
-fun provideOkHttpClient(loggingInterceptor: HttpLoggingInterceptor): OkHttpClient {
+fun provideOkHttpClient(): OkHttpClient {
     return OkHttpClient.Builder()
-        .addInterceptor(loggingInterceptor)
         .build()
 }
 

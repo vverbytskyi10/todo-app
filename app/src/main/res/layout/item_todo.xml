@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootTodoItem"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center"
     android:minHeight="?listPreferredItemHeight"
     android:orientation="horizontal"
-    android:padding="16dp">
+    android:padding="@dimen/padding_default">
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/textViewTodoItemContent"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="@dimen/padding_default"
         android:layout_weight="1"
         tools:text="test 123" />
 

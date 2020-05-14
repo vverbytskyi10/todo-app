@@ -7,14 +7,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.vverbytskyi.todoapp.R
 import com.vverbytskyi.todoapp.domain.model.TodoDomainEntity
 
-class TodoAdapter(context: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class TodoAdapter(
+    context: Context,
+    private val listener: Listener? = null
+) : RecyclerView.Adapter<RecyclerView.ViewHolder>(), TodoItemViewHolder.Listener {
 
     private val inflater = LayoutInflater.from(context)
-
     private val todoList = mutableListOf<TodoDomainEntity>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return TodoItemViewHolder(inflater.inflate(R.layout.item_todo, parent, false))
+        return TodoItemViewHolder(inflater.inflate(R.layout.item_todo, parent, false), this)
     }
 
     override fun getItemCount(): Int {
@@ -32,6 +34,15 @@ class TodoAdapter(context: Context) : RecyclerView.Adapter<RecyclerView.ViewHold
             clear()
             addAll(data)
         }
+
         notifyDataSetChanged()
+    }
+
+    interface Listener {
+        fun onTodoItemCheckedStateChanged(todoId: Int, isCompleted: Boolean)
+    }
+
+    override fun onCheckboxStateChanged(position: Int, isChecked: Boolean) {
+        listener?.onTodoItemCheckedStateChanged(todoList[position].itemId, isChecked)
     }
 }

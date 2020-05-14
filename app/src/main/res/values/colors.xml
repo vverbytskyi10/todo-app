@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
+    <color name="colorPrimary">#4154AF</color>
+    <color name="colorPrimaryDark">#314299</color>
+    <color name="colorAccent">#EC5381</color>
+    <color name="colorOnPrimary">#FFFFFF</color>
+    <color name="colorOnSurface">#000000</color>
+    <color name="colorOnBackground">#000000</color>
+    <color name="colorTodoItemCompleted">#D3F4D3</color>
+    <color name="colorTodoItemNotCompleted">#FFFFFF</color>
+    <color name="colorLoadingBackground">#40000000</color>
 </resources>

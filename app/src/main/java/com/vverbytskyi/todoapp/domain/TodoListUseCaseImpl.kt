@@ -17,4 +17,8 @@ class TodoListUseCaseImpl(
     override suspend fun markTodoItem(isCompleted: Boolean): NetworkState<Boolean> {
         return CompletedState(isCompleted)
     }
+
+    override suspend fun addTodoItem(userId: Int, content: String): NetworkState<TodoDomainEntity> {
+        return CompletedState(TodoDomainEntity(100, userId, content, false))
+    }
 }

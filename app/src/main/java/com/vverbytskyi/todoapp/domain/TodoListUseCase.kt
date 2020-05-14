@@ -8,4 +8,6 @@ interface TodoListUseCase {
     suspend fun getTodoList(userId: Int): NetworkState<List<TodoDomainEntity>>
 
     suspend fun markTodoItem(isCompleted: Boolean): NetworkState<Boolean>
+
+    suspend fun addTodoItem(userId: Int, content: String): NetworkState<TodoDomainEntity>
 }
